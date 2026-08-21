@@ -383,14 +383,16 @@ button:focus-visible {
   border: 1px solid rgba(75,43,33,.09);
   border-radius: 34px;
   background: rgba(255,255,255,.5);
+  text-align: center;
 }
 
 .cover-kicker {
-  position: absolute;
-  z-index: 3;
-  top: 17px;
-  left: 17px;
-  padding: 7px 11px;
+  position: static;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 18px;
+  padding: 7px 14px;
   border-radius: 999px;
   background: #2f1e18;
   color: #fff;

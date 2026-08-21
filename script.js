@@ -1,61 +1,34 @@
 /* =========================================================
-   DO COLO AO BERÇO
-   JavaScript da página
+   DO COLO AO BERÇO — JavaScript
 ========================================================= */
 
-/*
-  1) COLE O LINK REAL DO SEU CHECKOUT ENTRE AS ASPAS.
-  2) Você só precisa alterar este local.
-  3) Todos os botões de compra usam esta mesma variável.
-*/
-const CHECKOUT_URL = "COLE_AQUI_O_LINK_DO_CHECKOUT";
+const CHECKOUT_URL = "https://pay.hotmart.com/K107248678J";
 
-/* BOTÕES DE COMPRA */
-const checkoutButtons = document.querySelectorAll("[data-checkout]");
-
-checkoutButtons.forEach((button) => {
-  button.addEventListener("click", (event) => {
-    event.preventDefault();
-
-    const linkFoiConfigurado =
-      CHECKOUT_URL &&
-      CHECKOUT_URL !== "COLE_AQUI_O_LINK_DO_CHECKOUT";
-
-    if (!linkFoiConfigurado) {
-      alert(
-        "O link do checkout ainda não foi configurado. Abra o arquivo script.js e substitua COLE_AQUI_O_LINK_DO_CHECKOUT pelo seu link real."
-      );
-      return;
-    }
-
-    window.location.href = CHECKOUT_URL;
-  });
+/* Garante que todos os CTAs usem o mesmo checkout */
+document.querySelectorAll("[data-checkout]").forEach((button) => {
+  button.setAttribute("href", CHECKOUT_URL);
 });
 
 /* FAQ */
-const faqQuestions = document.querySelectorAll(".faq-question");
-
-faqQuestions.forEach((question) => {
+document.querySelectorAll(".faq-question").forEach((question) => {
   question.addEventListener("click", () => {
     const item = question.closest(".faq-item");
-    const isOpen = item.classList.contains("is-open");
+    const wasOpen = item.classList.contains("is-open");
 
     document.querySelectorAll(".faq-item.is-open").forEach((openItem) => {
       openItem.classList.remove("is-open");
-      const openButton = openItem.querySelector(".faq-question");
-      openButton.setAttribute("aria-expanded", "false");
+      openItem.querySelector(".faq-question").setAttribute("aria-expanded", "false");
     });
 
-    if (!isOpen) {
+    if (!wasOpen) {
       item.classList.add("is-open");
       question.setAttribute("aria-expanded", "true");
     }
   });
 });
 
-/* ANO AUTOMÁTICO NO RODAPÉ */
-const yearElement = document.getElementById("year");
-
-if (yearElement) {
-  yearElement.textContent = new Date().getFullYear();
+/* Ano automático no rodapé */
+const year = document.getElementById("year");
+if (year) {
+  year.textContent = new Date().getFullYear();
 }

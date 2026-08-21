@@ -313,7 +313,7 @@ button:focus-visible {
 .price strong {
   color: var(--brown);
   font-family: "Lora", Georgia, serif;
-  font-size: 2.55rem;
+  font-size: 3.3rem;
   line-height: 1;
 }
 
@@ -1232,7 +1232,7 @@ button:focus-visible {
 
   .mobile-cta strong {
     color: var(--brown);
-    font-size: 1.23rem;
+    font-size: 1.72rem;
     line-height: 1;
   }
 

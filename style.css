@@ -1370,3 +1370,30 @@ button:focus-visible {
     transition: none !important;
   }
 }
+
+/* Parcelamento da oferta */
+.price small,
+.checkout-card__price small,
+.final-price small {
+  font-size: .82rem;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.final-price small {
+  margin-top: 7px;
+}
+
+.mobile-cta small {
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: .62rem;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+@media (max-width: 390px) {
+  .mobile-cta small {
+    font-size: .58rem;
+  }
+}
